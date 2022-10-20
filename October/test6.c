@@ -3,32 +3,15 @@
 
 int main()
 {
-	int i = 0;
-	for(i = 1;i <= 100;i++)
-	{
-		int flag = 0;
-		if(i % 2 == 0)
-		{
-			flag = 1;
-		}
-		else
-		{
-			flag = 0;
-		}
-		
-		if(flag == 0)
-		{
-			printf("%d是偶数!\n",i);
-		}
-		else
-		{
-			printf("%d是奇数!\n",i);
-		}
-	}
-	
+	int num = 0x12345678;
+	char *p = (char *)&num;//关注指针操作空间大小 
+	printf("*p = %#x,%p\n",*p,p);
+	p++;
+	printf("*p = %#x,%p\n",*p,p);
+	p++;
+	printf("*p = %#x,%p\n",*p,p);
+	p++;
+	printf("*p = %#x,%p\n",*p,p);
 	return 0;
 }
-
-
-
 

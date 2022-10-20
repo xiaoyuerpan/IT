@@ -3,26 +3,27 @@
 
 int main()
 {
-/*	int i = 1;
-	while(i <= 100)
-	{
-		printf("i = %d,hello world!\n",i);
-		i = i + 1;
-	}
-*/
-	int i = 1;
-zxc:
-	if(i > 100)
-	{
-		//goto qwe;
-		return 0;
-	}
-	printf("i = %d,hello world!\n",i);
-	i = i + 1;
-goto zxc;
+	int num = 1234;
+	//int *p = &num;
+	//const int *p = &num; //const * p 
+	int *const p = &num; //* const p
+	
+	printf("num = %d,&num = %p\n",num,&num);
+	printf("*p = %d,p = %p\n",*p,p);
+	
+	//通过指针间接修改指向空间内容 
+	
+	*p = 9876;
+	printf("++++num = %d,&num = %p\n",num,&num);
+	printf("++++*p = %d,p = %p\n",*p,p);
 
-//qwe:
-
+/*
+	//修改指针的指向，导致*p的值和p的指向发生改变 
+	int b = 8888;
+	p = &b;
+	printf("++++b = %d,&b = %p\n",b,&b);
+	printf("++++*p = %d,p = %p\n",*p,p);
+*/	
 	return 0;
 }
 

@@ -1,0 +1,76 @@
+1、有 N个国家名，要求按字母先后顺序排列（用起泡排序法）后输出。 
+#include<stdio.h>
+#include <string.h>
+#define N  5
+int main()
+{
+	char a[N][100]={"endland","china","australia","canada","germany"};
+	int i,j;
+	//冒泡排序法 
+	for(i=0;i<N-1;i++) 
+	{
+	for(j=0;j<N-1-i;j++)	
+	{
+	  if(strcmp(a[j],a[j+1])>0)	//交换 
+	  {
+	  	  char b[100];
+	  	 strcpy(b,a[j]);
+	  	 strcpy(a[j],a[j+1]);
+	  	 strcpy(a[j+1],b);	 
+	  }	
+	}	
+	}
+	for(i=0;i<N;i++)
+	{
+		printf("%s\n",a[i]);
+	}
+	return 0;
+}
+2、把一个字符串的大写字母放到字符串的后面，且不能申请额外的空间。
+①#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char a[100]="adfsfAEGkcgjhBY";
+	char b[100],c[100];
+	int i=0,j=0,k=0;
+	while(a[i]!='\0')
+  {
+	if(a[i]>='A'&& a[i]<='Z')
+	{ 
+	b[j]=a[i];
+	j++;
+    }  
+    if(a[i]>='a'&& a[i]<='z')
+	{
+	c[k]=a[i];
+	k++;
+    } 
+	i++; 
+  }
+  b[j]='\0';c[k]='\0';
+  strcat(c,b);
+ printf("%s\n",c);			
+	return 0;
+}
+②冒泡排序法，先确定最后一位，倒数第二位。。。 As才交换
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char a[100]="saerAREzsgtRfsg",t; 
+	int i,j;
+	int len=strlen(a);
+	for(i=0;i<len;i++)//先确定最后一位
+	{
+	 for(j=0;j<len-1-i;j++)//okk 
+	{
+		if(a[j]>='A'&&a[j]<='Z' &&a[j+1]>='a'&&a[j+1]<='z')
+		{
+			t=a[j];a[j]=a[j+1];a[j+1]=t;//出现Ab-> 交换 
+		}	
+	}		
+	}
+	printf("%s\n",a) ;
+	return 0;
+}
